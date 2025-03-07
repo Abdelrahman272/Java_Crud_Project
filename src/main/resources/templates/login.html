@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ログイン画面</title>
+    <link
+      rel="stylesheet"
+      typr="text/css"
+      th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"
+    />
+    <script
+      type="text/javascript"
+      th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"
+    ></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h2>ログイン画面</h2>
+
+      <span th:text="${message}"></span>
+
+      <form th:action="@{/login}" method="post" th:object="${loginForm}">
+        <div class="form-group">
+          <div class="col-3 col-md-2 col-xxl-1">
+            <p>
+              <label for="loginId">ログインID:</label>
+              <input class="form-control" type="text" th:field="*{loginId}" />
+            </p>
+          </div>
+
+          <div class="col-1">
+            <p>
+              <label for="password">パスワード:</label>
+              <input
+                class="form-control"
+                type="password"
+                th:field="*{password}"
+              />
+            </p>
+          </div>
+          <div>
+            <p>
+              <input class="btn btn-primary" type="submit" value="ログイン" />
+            </p>
+          </div>
+        </div>
+      </form>
+      <a th:href="@{/signup}">►ユーザ登はコチラ</a>
+    </div>
+  </body>
+</html>
