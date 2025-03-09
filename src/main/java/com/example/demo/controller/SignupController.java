@@ -11,9 +11,12 @@ import org.springframework.context.MessageSource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.constant.MessageConst;
 import com.example.demo.constant.SignupMessage;
 import com.example.demo.entity.UserInfo;
 import com.example.demo.form.SignupForm;
@@ -42,14 +45,22 @@ public class SignupController {
     }
     
     @PostMapping("/signup")
-    public void login(Model model, SignupForm form)
+    public void login(Model model, @Validated SignupForm form, BindingResult bdResult)
     {
+        if(bdResult.hasErrors()) {
+            editGuideMessage(model, MessageConst.FORM_ERROR, true);
+            return;
+        }
 		var userInfoOpt = service.registerUserInfo(form);
         var signupMessage =  judgeMessageKey(userInfoOpt);
-        var messageId = AppUtil.getMessages(messageSource, signupMessage.getMessageId());
-        model.addAttribute("message", messageId);
-        model.addAttribute("isError", signupMessage.isError());
+        editGuideMessage(model, signupMessage.getMessageId(), signupMessage.isError());
     }
+
+    private void editGuideMessage(Model model, String messageId, boolean isError) {
+        var message = AppUtil.getMessages(messageSource, messageId);
+        model.addAttribute("message", message);
+        model.addAttribute("isError", isError);
+    } 
 
     private SignupMessage judgeMessageKey(Optional<UserInfo> userInfoOpt) 
     {
