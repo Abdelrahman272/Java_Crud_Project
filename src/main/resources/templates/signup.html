@@ -32,7 +32,7 @@
               <input class="form-control" type="text" th:field="*{loginId}" />
             </p>
           </div>
-
+          <span class="text-danger" th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}"></span>
           <div class="col-1">
             <p>
               <label for="password">パスワード:</label>
@@ -43,6 +43,7 @@
               />
             </p>
           </div>
+          <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
           <p>
             <input class="btn btn-primary" type="submit" value="ユーザー登録" />
           </p>
