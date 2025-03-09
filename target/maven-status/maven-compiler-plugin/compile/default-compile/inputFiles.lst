@@ -1,6 +1,7 @@
 /Users/abdelrahmanfarag/Documents/programing/Java_Spring_Crud/src/main/java/com/example/demo/DemoApplication.java
 /Users/abdelrahmanfarag/Documents/programing/Java_Spring_Crud/src/main/java/com/example/demo/config/BeanDefine.java
 /Users/abdelrahmanfarag/Documents/programing/Java_Spring_Crud/src/main/java/com/example/demo/constant/MessageConst.java
+/Users/abdelrahmanfarag/Documents/programing/Java_Spring_Crud/src/main/java/com/example/demo/constant/SignupMessage.java
 /Users/abdelrahmanfarag/Documents/programing/Java_Spring_Crud/src/main/java/com/example/demo/controller/LoginController.java
 /Users/abdelrahmanfarag/Documents/programing/Java_Spring_Crud/src/main/java/com/example/demo/controller/MenuController.java
 /Users/abdelrahmanfarag/Documents/programing/Java_Spring_Crud/src/main/java/com/example/demo/controller/SignupController.java
