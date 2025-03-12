@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.Optional;
 
 import org.dozer.Mapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class SignupService {
 
     private final Mapper mapper;
 
-    private final PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public Optional<UserInfo> registerUserInfo(SignupForm form) {
         var userInfoExistedOpt = repository.findById(form.getLoginId());

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo.form.LoginForm;
 import com.example.demo.service.LoginService;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.context.MessageSource;
 import com.example.demo.util.AppUtil;
@@ -30,7 +31,7 @@ public class LoginController {
 
 	private final LoginService service;
 
-	private final PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	private final MessageSource messageSource;
 

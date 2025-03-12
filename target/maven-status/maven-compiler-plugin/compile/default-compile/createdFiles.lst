@@ -7,6 +7,7 @@ com/example/demo/controller/SignupController.class
 com/example/demo/constant/SignupMessage.class
 com/example/demo/DemoApplication.class
 com/example/demo/repository/UserInfoRepository.class
+com/example/demo/config/WebSecurityConfig.class
 com/example/demo/service/LoginService.class
 com/example/demo/form/SignupForm.class
 com/example/demo/service/Autowired.class
