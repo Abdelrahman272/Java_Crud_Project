@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.constant.MessageConst;
 import com.example.demo.constant.SignupMessage;
+import com.example.demo.constant.UrlConst;
 import com.example.demo.entity.UserInfo;
 import com.example.demo.form.SignupForm;
 import com.example.demo.service.SignupService;
@@ -39,12 +40,12 @@ public class SignupController {
 	// private final MessageSource messageSource;
 
 	
-    @GetMapping("/signup")
+    @GetMapping(UrlConst.SIGNUP)
     public String view(Model model, SignupForm form) {
         return "signup";
     }
     
-    @PostMapping("/signup")
+    @PostMapping(UrlConst.SIGNUP)
     public void login(Model model, @Validated SignupForm form, BindingResult bdResult)
     {
         if(bdResult.hasErrors()) {

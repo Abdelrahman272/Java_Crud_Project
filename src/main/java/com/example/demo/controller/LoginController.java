@@ -18,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.context.MessageSource;
 import com.example.demo.util.AppUtil;
 import com.example.demo.constant.MessageConst;
+import com.example.demo.constant.UrlConst;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,12 +37,12 @@ public class LoginController {
 	private final MessageSource messageSource;
 
 	
-    @GetMapping("/login")
+    @GetMapping(UrlConst.LOGIN)
     public String view(Model model, LoginForm form) {
         return "login";
     }
     
-    @PostMapping("/login")
+    @PostMapping(UrlConst.LOGIN)
     public String login(Model model, LoginForm form)
     {
     	var userInfo = service.searchUserById(form.getLoginId());
