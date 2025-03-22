@@ -2,7 +2,7 @@ package com.example.demo.authentication;
 
 import java.time.LocalDateTime;
 
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.event.AuthenticationFailureBadCredentialsEvent;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
@@ -22,9 +22,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserInfoRepository repository;
 
-    private final int LOCKING_BORDER_COUNT = 4;
+    @Value("${security.locking-border-count}")
+    private int lockingBorderCount;
 
-    private final int LOCKING_TIME = 1;
+    @Value("${security.locking-time}")
+    private int lockingTime;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -33,7 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         var accountLockedTime = userInfo.getAccountLockedTime();
         var isAccountLocked = accountLockedTime != null 
-            && accountLockedTime.plusHours(LOCKING_TIME).isAfter(LocalDateTime.now());
+            && accountLockedTime.plusHours(lockingTime).isAfter(LocalDateTime.now());
 
         return User.withUsername(userInfo.getLoginId())
             .password(userInfo.getPassword())
@@ -49,7 +51,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         repository.findById(loginId).ifPresent(userInfo -> {
             repository.save(userInfo.incrementLoginFailureCount());
 
-            var isReachFailureCount = userInfo.getLoginFailureCount() == LOCKING_BORDER_COUNT;
+            var isReachFailureCount = userInfo.getLoginFailureCount() == lockingBorderCount;
             if (isReachFailureCount) {
                 repository.save(userInfo.updateAccountLocked());
             }
