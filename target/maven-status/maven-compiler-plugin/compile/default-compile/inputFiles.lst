@@ -2,6 +2,7 @@
 /Users/abdelrahmanfarag/Programing/spring-boot/Java_Crud_Project/src/main/java/com/example/demo/authentication/UserDetailsServiceImpl.java
 /Users/abdelrahmanfarag/Programing/spring-boot/Java_Crud_Project/src/main/java/com/example/demo/config/BeanDefine.java
 /Users/abdelrahmanfarag/Programing/spring-boot/Java_Crud_Project/src/main/java/com/example/demo/config/WebSecurityConfig.java
+/Users/abdelrahmanfarag/Programing/spring-boot/Java_Crud_Project/src/main/java/com/example/demo/constant/AuthorityKind.java
 /Users/abdelrahmanfarag/Programing/spring-boot/Java_Crud_Project/src/main/java/com/example/demo/constant/MessageConst.java
 /Users/abdelrahmanfarag/Programing/spring-boot/Java_Crud_Project/src/main/java/com/example/demo/constant/SignupMessage.java
 /Users/abdelrahmanfarag/Programing/spring-boot/Java_Crud_Project/src/main/java/com/example/demo/constant/UrlConst.java
