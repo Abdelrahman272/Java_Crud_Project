@@ -1,5 +1,6 @@
 com/example/demo/entity/UserInfo.class
 com/example/demo/config/BeanDefine.class
+com/example/demo/constant/AuthorityKind.class
 com/example/demo/DemoApplication.class
 com/example/demo/config/WebSecurityConfig.class
 com/example/demo/constant/UrlConst.class
