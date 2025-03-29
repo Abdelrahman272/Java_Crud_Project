@@ -1,5 +1,7 @@
 package com.example.demo.constant;
 
+import java.util.Arrays;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -25,4 +27,11 @@ public enum AuthorityKind {
 
 	/** 画面表示する説明文 */
 	private String displayValue;
+
+		public static AuthorityKind from(String code) {
+		return Arrays.stream(AuthorityKind.values())
+				.filter(authorityKind -> authorityKind.getCode().equals(code))
+				.findFirst()
+				.orElse(UNKNOWN);
+	}
 }

@@ -11,6 +11,6 @@ public enum UserStatusKind {
     
     DISABLED(true, "利用不可");
 
-    private final boolean value;
+    private boolean isDisabled;
     private final String displayValue;
 }

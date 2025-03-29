@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import java.util.Optional;
 
-import org.dozer.Mapper;
+import com.github.dozermapper.core.Mapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +37,7 @@ public class SignupServiceImpl implements SignupService {
         var userInfo = mapper.map(form, UserInfo.class);
         var encodedPassword = passwordEncoder.encode(form.getPassword());
         userInfo.setPassword(encodedPassword);
-        userInfo.setAuthority(AuthorityKind.ITEM_WATCHER.getCode());
+        userInfo.setAuthority(AuthorityKind.ITEM_WATCHER);
         
         return Optional.of(repository.save(userInfo));
     }
