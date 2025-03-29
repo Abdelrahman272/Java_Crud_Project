@@ -4,6 +4,8 @@ com/example/demo/constant/AuthorityKind.class
 com/example/demo/DemoApplication.class
 com/example/demo/config/WebSecurityConfig.class
 com/example/demo/constant/UrlConst.class
+com/example/demo/aspect/CommonLogAspect.class
+com/example/demo/service/SignupServiceImpl.class
 com/example/demo/service/SignupService.class
 com/example/demo/constant/MessageConst.class
 com/example/demo/controller/MenuController.class
@@ -13,7 +15,6 @@ com/example/demo/constant/SignupMessage.class
 com/example/demo/repository/UserInfoRepository.class
 com/example/demo/service/LoginService.class
 com/example/demo/form/SignupForm.class
-com/example/demo/service/Autowired.class
 com/example/demo/util/AppUtil.class
 com/example/demo/controller/LoginController.class
 com/example/demo/form/LoginForm.class

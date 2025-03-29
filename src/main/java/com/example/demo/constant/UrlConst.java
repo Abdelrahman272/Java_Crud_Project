@@ -8,6 +8,8 @@ public class UrlConst {
 
     public static final String MENU = "/menu";
 
+    public static final String USER_LIST = "/userList";
+
     public static final String[] NO_AUTHENTICATION = {LOGIN, SIGNUP, "/webjars/**"};
 
 }

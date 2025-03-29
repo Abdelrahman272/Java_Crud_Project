@@ -19,7 +19,7 @@ public class MenuController {
 
 		var hasUserManageAuth = user.getAuthorities().stream()
 				.allMatch(authority -> authority.getAuthority()
-				.equals(AuthorityKind.ITEM_AND_USER_MANAGER.getAuthorityKind()));
+				.equals(AuthorityKind.ITEM_AND_USER_MANAGER.getCode()));
 		model.addAttribute("hasUserManageAuth", hasUserManageAuth);
 		
 		
